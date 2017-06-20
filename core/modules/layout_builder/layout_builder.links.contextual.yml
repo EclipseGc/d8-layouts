@@ -2,6 +2,10 @@ layout_builder_block_configure:
   title: 'Configure'
   route_name: 'layout_builder.add_block'
   group: 'layout_builder_block'
+layout_builder_block_visibility:
+  title: 'Visibility'
+  route_name: 'layout_builder.visibility'
+  group: 'layout_builder_block'
 layout_builder_block_delete:
   title: 'Remove block'
   route_name: 'layout_builder.remove_block'

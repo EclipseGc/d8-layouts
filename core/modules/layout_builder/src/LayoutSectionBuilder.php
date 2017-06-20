@@ -97,7 +97,7 @@ class LayoutSectionBuilder {
     foreach ($section as $region => $blocks) {
       // @todo determine if config should at least always be an empty array.
       foreach ($blocks as $uuid => $configuration) {
-        $block = $this->getBlock($uuid, $configuration);
+        $block = $this->getBlock($uuid, $configuration['block']);
 
         $access = $block->access($this->account, TRUE);
         $cacheability->addCacheableDependency($access);
@@ -151,7 +151,7 @@ class LayoutSectionBuilder {
     foreach ($section as $region => $blocks) {
       $weight = 0;
       foreach ($blocks as $uuid => $configuration) {
-        $block = $this->getBlock($uuid, $configuration);
+        $block = $this->getBlock($uuid, $configuration['block']);
         $access = $block->access($this->account, TRUE);
         $cacheability->addCacheableDependency($access);
 

@@ -25,30 +25,25 @@ function layout_builder_help($route_name) {
  */
 function layout_builder_contextual_links_view_alter(&$element, $items) {
   $attach_lib = FALSE;
-  if (isset($element['#links']['layout-builder-block-configure'])) {
-    $attributes = [
-      'class' => ['use-ajax'],
-      'data-dialog-type' => 'dialog',
-      'data-dialog-renderer' => 'off_canvas',
-    ];
-    /** @var \Drupal\Core\Url $url */
-    $url = $element['#links']['layout-builder-block-configure']['url'];
-    $url_attributes = $url->getOption('attributes');
-    $url_attributes = $url_attributes ? $url_attributes += $attributes : $attributes;
-    $url->setOption('attributes', $url_attributes);
-    $attach_lib = TRUE;
-  }
-
-  if (isset($element['#links']['layout-builder-block-delete'])) {
-    $attributes = [
-      'class' => ['use-ajax'],
-    ];
-    /** @var \Drupal\Core\Url $url */
-    $url = $element['#links']['layout-builder-block-delete']['url'];
-    $url_attributes = $url->getOption('attributes');
-    $url_attributes = $url_attributes ? $url_attributes += $attributes : $attributes;
-    $url->setOption('attributes', $url_attributes);
-    $attach_lib = TRUE;
+  $links = [
+    'layout-builder-block-configure',
+    'layout-builder-block-delete',
+    'layout-builder-block-visibility'
+  ];
+  foreach ($links as $link) {
+    if (isset($element['#links'][$link])) {
+      $attributes = [
+        'class' => ['use-ajax'],
+        'data-dialog-type' => 'dialog',
+        'data-dialog-renderer' => 'off_canvas',
+      ];
+      /** @var \Drupal\Core\Url $url */
+      $url = $element['#links'][$link]['url'];
+      $url_attributes = $url->getOption('attributes');
+      $url_attributes = $url_attributes ? $url_attributes += $attributes : $attributes;
+      $url->setOption('attributes', $url_attributes);
+      $attach_lib = TRUE;
+    }
   }
 
   if ($attach_lib) {

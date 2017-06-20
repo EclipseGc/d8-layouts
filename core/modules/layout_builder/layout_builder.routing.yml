@@ -62,5 +62,14 @@ layout_builder.move_block:
   options:
     _admin_route: TRUE
 
+layout_builder.visibility:
+  path: '/layout_builder/visibility/block/{entity_type}/{entity}/{field_name}/{delta}/{region}/{uuid}'
+  defaults:
+    _form: '\Drupal\layout_builder\Form\BlockVisibility'
+  requirements:
+    _permission: 'configure any layout'
+  options:
+    _admin_route: TRUE
+
 route_callbacks:
   - 'layout_builder.routes:getRoutes'
