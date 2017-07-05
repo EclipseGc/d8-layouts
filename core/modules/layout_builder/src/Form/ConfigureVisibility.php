@@ -24,7 +24,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class ConfigureVisibility extends FormBase {
   use ContextAwarePluginAssignmentTrait;
   use TempstoreIdHelper;
-  use OffCanvasFormDialogTrait;
+  //use OffCanvasFormDialogTrait;
 
   /**
    * Tempstore factory.
@@ -175,8 +175,10 @@ class ConfigureVisibility extends FormBase {
       '#button_type' => 'primary',
     ];
 
-    $this->buildFormDialog($form, $form_state);
+    //$this->buildFormDialog($form, $form_state);
     $form['actions']['submit']['#ajax']['callback'] = [$this, 'ajaxSubmit'];
+    $form['#validate'][] = [$this, 'validateForm'];
+    $form['#submit'][] = [$this, 'submitForm'];
 
     return $form;
   }
@@ -212,6 +214,7 @@ class ConfigureVisibility extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
+    \Drupal::logger('visibility')->alert('Got to validate');
     $settings = (new FormState())->setValues($form_state->getValue('settings'));
     // Call the plugin validate handler.
     $this->condition->validateConfigurationForm($form, $settings);
@@ -249,7 +252,7 @@ class ConfigureVisibility extends FormBase {
       $entity = $tempstore['entity'];
     }
     $values = $entity->$field_name->getValue();
-    $values[$delta]['section'][$region][$block_id]['visibility'][$configuration['uuid']] = $configuration;
+    $values[$delta]['section'][$region][$block_id]['visibility'][$condition_id] = $configuration;
     $entity->$field_name->setValue($values);
 
     $tempstore['entity'] = $entity;

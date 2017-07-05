@@ -24,7 +24,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class ConfigureBlock extends FormBase {
   use ContextAwarePluginAssignmentTrait;
   use TempstoreIdHelper;
-  use OffCanvasFormDialogTrait;
+  //use OffCanvasFormDialogTrait;
 
   /**
    * Tempstore factory.
@@ -172,7 +172,7 @@ class ConfigureBlock extends FormBase {
       '#button_type' => 'primary',
     ];
 
-    $this->buildFormDialog($form, $form_state);
+    //$this->buildFormDialog($form, $form_state);
     $form['actions']['submit']['#ajax']['callback'] = '::ajaxSubmit';
 
     return $form;
