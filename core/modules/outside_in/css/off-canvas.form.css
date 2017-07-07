@@ -112,6 +112,10 @@
 #drupal-off-canvas td .form-select {
   margin: 0;
 }
+#drupal-off-canvas .form-file {
+  margin-bottom: 5px;
+  width: 100%;
+}
 #drupal-off-canvas .form-actions {
   text-align: center;
   margin: 10px 0;

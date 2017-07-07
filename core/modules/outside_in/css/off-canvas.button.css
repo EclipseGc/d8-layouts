@@ -62,6 +62,7 @@
   border: 0;
   background: #277abd;
   color: #fff;
+  margin-top: 15px;
 }
 #drupal-off-canvas input[type="submit"].button--primary:hover,
 #drupal-off-canvas input[type="submit"].button--primary:focus,

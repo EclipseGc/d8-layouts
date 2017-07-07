@@ -45,6 +45,7 @@
   margin: 0;
   padding: 0;
   width: auto;
+  background-color: transparent;
 }
 #drupal-off-canvas .draggable a.tabledrag-handle:hover .handle,
 #drupal-off-canvas .draggable a.tabledrag-handle:focus .handle {

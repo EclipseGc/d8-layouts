@@ -136,6 +136,11 @@
   font-weight: bold;
 }
 
+#drupal-off-canvas em,
+#drupal-off-canvas i {
+  font-style: italic;
+}
+
 #drupal-off-canvas img {
   color: transparent;
   font-size: 0;
@@ -359,7 +364,9 @@
   width: auto;
 }
 #drupal-off-canvas * textarea,
-#drupal-off-canvas * select {
+#drupal-off-canvas * select,
+#drupal-off-canvas *:not(div) textarea,
+#drupal-off-canvas *:not(div) select {
   background: white;
   border: 1px solid;
   border-color: grey;

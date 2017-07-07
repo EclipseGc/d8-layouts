@@ -145,6 +145,7 @@
 #drupal-off-canvas span.dropbutton-arrow {
   top: 7px;
   right: 7px; /* LTR */
+  background: transparent;
 }
 #drupal-off-canvas span.dropbutton-arrow:hover {
   background: transparent;
@@ -190,12 +191,12 @@
 /* Push the widget to the right so text expands left. */
 #drupal-off-canvas td .dropbutton-widget {
   position: absolute;
-  right: 20px; /* LTR */
+  right: 12px; /* LTR */
   padding: 0;
   background: #277abd none;
 }
 [dir="rtl"] #drupal-off-canvas td .dropbutton-widget {
-  left: 20px;
+  left: 12px;
 }
 
 /* Push the wrapper to the right edge of the td. */
@@ -206,6 +207,7 @@
   margin-right: 0;
   max-width: initial;
   min-width: initial;
+  position: relative;
 }
 [dir="rtl"] #drupal-off-canvas td .dropbutton-multiple {
   float: left;
@@ -217,12 +219,14 @@
   width: 2em;
   height: 2em;
   overflow: hidden;
+  background: transparent;
 }
 
 /* Push text out of the way. */
 #drupal-off-canvas td .dropbutton-multiple li,
 #drupal-off-canvas td .dropbutton-multiple a {
   margin-left: -9999px;
+  background: transparent;
 }
 #drupal-off-canvas td .dropbutton-multiple.open .dropbutton li,
 #drupal-off-canvas td .dropbutton-multiple.open .dropbutton a {
@@ -239,6 +243,7 @@
 }
 #drupal-off-canvas td .dropbutton-wrapper .dropbutton-widget .dropbutton-toggle button {
   border: 0;
+  background: transparent;
 }
 
 /* Prevent list item from expanding it's container. */
@@ -304,5 +309,5 @@
 #drupal-off-canvas .dropbutton-multiple.open span.dropbutton-arrow {
   border-bottom: 0.3333em solid;
   border-top-color: transparent;
-  top: 4px;
+  top: 2px;
 }

@@ -5,7 +5,8 @@
  */
 
 /* Set some global attributes. */
-#drupal-off-canvas * {
+#drupal-off-canvas *,
+#drupal-off-canvas *:not(div) {
   background: #444;
   font-family: "Lucida Grande", 'Lucida Sans Unicode','liberation sans', sans-serif;
   color: #ddd;
@@ -119,6 +120,10 @@
 #drupal-off-canvas ol {
   list-style-type: decimal;
 }
+#drupal-off-canvas ul li,
+#drupal-off-canvas ol li {
+  display: block;
+}
 #drupal-off-canvas quote,
 #drupal-off-canvas code {
   margin: 20px 0;
@@ -193,4 +198,24 @@
 /* Override jquery UI */
 #drupal-off-canvas .ui-widget-content a {
   color: #85bef4 !important;
+}
+
+/* Message styles */
+#drupal-off-canvas .messages--status {
+  background: #f3faef url(../../../misc/icons/73b355/check.svg) no-repeat 10px 17px;
+  color: #325e1c;
+}
+#drupal-off-canvas .messages--warning {
+  background: #fdf8ed url(../../../misc/icons/e29700/warning.svg) no-repeat 10px 17px;
+  color: #734c00;
+}
+
+#drupal-off-canvas .messages--error {
+  background: #fcf4f2 url(../../../misc/icons/e32700/error.svg) no-repeat 10px 17px;
+  color: #a51b00;
+}
+
+#drupal-off-canvas .messages--error div[role="alert"] {
+  background: transparent;
+  color: inherit;
 }

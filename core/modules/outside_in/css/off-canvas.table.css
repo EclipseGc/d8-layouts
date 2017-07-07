@@ -71,7 +71,6 @@
 #drupal-off-canvas td {
   padding: 6px 8px;
   color: #ddd;
-  white-space: nowrap;
 }
 /* Hide overflow with elipsis for links. */
 #drupal-off-canvas td a {
@@ -79,6 +78,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  background: transparent;
 }
 #drupal-off-canvas tr td:first-child,
 #drupal-off-canvas tr th:first-child {
