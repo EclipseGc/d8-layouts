@@ -125,6 +125,12 @@ class BlockVisibility extends FormBase {
       /** @var ConditionInterface $condition */
       $condition = $this->conditionManager->createInstance($configuration['id'], $configuration);
       $condition->summary();
+      $options = ['attributes' => [
+        'class' => ['use-ajax'],
+        'data-dialog-type' => 'dialog',
+        'data-dialog-renderer' => 'off_canvas',
+        'data-outside-in-edit' => TRUE,
+      ]];
       $items[] = [
           ['#markup' => $condition->getPluginId() . '<br />' . $condition->summary()],
           [
@@ -132,11 +138,11 @@ class BlockVisibility extends FormBase {
             '#links' => [
               'edit' => [
                 'title' => $this->t('Edit'),
-                'url' => Url::fromRoute('layout_builder.add_visibility', $parameters)
+                'url' => Url::fromRoute('layout_builder.add_visibility', $parameters, $options)
               ],
               'delete' => [
                 'title' => $this->t('Delete'),
-                'url' => Url::fromRoute('layout_builder.add_visibility', $parameters)
+                'url' => Url::fromRoute('layout_builder.delete_visibility', $parameters, $options)
               ],
             ],
           ]

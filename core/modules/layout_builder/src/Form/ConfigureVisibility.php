@@ -143,7 +143,7 @@ class ConfigureVisibility extends FormBase {
       $entity = $tempstore['entity'];
     }
     $values = $entity->$field_name->getValue();
-    $value = !empty($values[$delta]['section'][$region][$plugin_id]) ? $values[$delta]['section'][$region][$plugin_id]['block'] : [];
+    $value = !empty($values[$delta]['section'][$region][$block_id]['visibility'][$plugin_id]) ? $values[$delta]['section'][$region][$block_id]['visibility'][$plugin_id] : [];
     $this->condition = $this->prepareCondition($plugin_id, $value);
 
     $form_state->setTemporaryValue('gathered_contexts', $this->contextRepository->getAvailableContexts());
@@ -214,7 +214,6 @@ class ConfigureVisibility extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    \Drupal::logger('visibility')->alert('Got to validate');
     $settings = (new FormState())->setValues($form_state->getValue('settings'));
     // Call the plugin validate handler.
     $this->condition->validateConfigurationForm($form, $settings);
