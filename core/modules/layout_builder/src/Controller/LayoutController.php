@@ -180,10 +180,12 @@ class LayoutController extends ControllerBase {
       }
 
       $items[] = [
-        'icon' => $icon ?: [],
         'label' => [
           '#type' => 'link',
-          '#title' => $definition->getLabel(),
+          '#title' => [
+            $icon ?: [],
+            ['#markup' => $definition->getLabel()]
+          ],
           '#url' => $this->generateSectionUrl($entity_type, $entity, $field_name, $delta, $plugin_id),
           '#attributes' => [
             'class' => 'use-ajax',
