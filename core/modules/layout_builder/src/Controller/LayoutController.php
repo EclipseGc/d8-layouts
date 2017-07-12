@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-
 /**
  * @todo.
  */
@@ -244,35 +243,6 @@ class LayoutController extends ControllerBase {
       ];
     }
     $entity->$field_name->setValue($values);
-    $tempstore['entity'] = $entity;
-    $this->tempStoreFactory->get($collection)->set($id, $tempstore);
-    return $this->ajaxRebuildLayout($entity, $field_name);
-  }
-
-  /**
-   * Add the layout to the entity field in a tempstore.
-   *
-   * @param string $entity_type
-   *   The entity type.
-   * @param string $entity
-   *   The entity id.
-   * @param string $field_name
-   *   The layout field name.
-   * @param int $delta
-   *   The delta of the section to splice.
-   *
-   * @return \Drupal\Core\Ajax\AjaxResponse
-   *   The render array.
-   */
-  public function removeSection($entity_type, $entity, $field_name, $delta) {
-    /** @var FieldableEntityInterface $entity */
-    $entity = $this->entityTypeManager()->getStorage($entity_type)->loadRevision($entity);
-    list($collection, $id) = $this->generateTempstoreId($entity, $field_name);
-    $tempstore = $this->tempStoreFactory->get($collection)->get($id);
-    if (!empty($tempstore['entity'])) {
-      $entity = $tempstore['entity'];
-    }
-    $entity->$field_name->removeItem($delta);
     $tempstore['entity'] = $entity;
     $this->tempStoreFactory->get($collection)->set($id, $tempstore);
     return $this->ajaxRebuildLayout($entity, $field_name);
