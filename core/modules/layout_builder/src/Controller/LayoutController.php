@@ -119,6 +119,8 @@ class LayoutController extends ControllerBase {
           ]),
           '#attributes' => [
             'class' => ['use-ajax', 'remove-section'],
+            'data-dialog-type' => 'dialog',
+            'data-dialog-renderer' => 'off_canvas',
           ],
         ],
         'layout-section' => $this->builder->buildAdministrativeSection($item->layout, $item->section ? $item->section : [], $layout_section_entity->getEntityTypeId(), $revision_id ? $revision_id : $entity_id, $layout_section_field_name, $count - 1),
