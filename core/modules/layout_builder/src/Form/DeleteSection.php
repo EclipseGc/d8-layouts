@@ -38,12 +38,28 @@ class DeleteSection extends ConfirmFormBase {
    */
   protected $entityTypeManager;
 
+  /**
+   * @param string $entityType
+   *   The entity type.
+   */
   protected $entityType;
 
+  /**
+   * @param string $entity
+   *   The entity id.
+   */
   protected $entity;
 
+  /**
+   * @param string $fieldName
+   *   The layout field name.
+   */
   protected $fieldName;
 
+  /**
+   * @param int $delta
+   *   The delta of the section to delete.
+   */
   protected $delta;
 
   /**
